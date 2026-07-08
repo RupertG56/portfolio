@@ -1,0 +1,9 @@
+# Visual Studio
+.vs/
+
+# JetBrains
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

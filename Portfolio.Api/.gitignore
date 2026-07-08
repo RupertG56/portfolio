@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+
+# NuGet packages (if using local packages)
+packages/
+
+# User files
+*.user
+*.rsuser
+*.suo
+*.sln.docstates
+
+# Logs
+*.log
