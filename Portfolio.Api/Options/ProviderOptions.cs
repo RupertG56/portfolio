@@ -1,6 +1,6 @@
 namespace Portfolio.Api.Options;
 
-public sealed class MongoOptions
+public sealed class ProviderOptions
 {
     public const string SectionName = "Mongo";
     public string ConnectionString { get; init; } = string.Empty;

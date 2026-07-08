@@ -5,6 +5,7 @@ namespace Portfolio.Api.BlogPost;
 // Blog post document stored in the data store. Inherits common document fields from DocumentBase.
 public class BlogPostDocument : DocumentBase
 {
+    public const string CollectionName = "blogPost";
     public string Summary { get; set; } = string.Empty;
     // The blog post content in Markdown format
     public string ContentMarkdown { get; set; } = string.Empty;
