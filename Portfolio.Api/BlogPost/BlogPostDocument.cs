@@ -3,7 +3,7 @@ using Portfolio.Api.Base;
 namespace Portfolio.Api.BlogPost;
 
 // Blog post document stored in the data store. Inherits common document fields from DocumentBase.
-public class BlogPostDocument : DocumentBase
+public class BlogPostDocument : BaseDocument
 {
     public const string CollectionName = "blogPost";
     public string Summary { get; set; } = string.Empty;
