@@ -33,7 +33,7 @@ if (app.Environment.IsDevelopment())
         using var scope = app.Services.CreateScope();
         var mongoContext = scope.ServiceProvider.GetRequiredService<PortfolioContext>();
         var database = mongoContext.Database;
-        await DatabaseInitializer.ResetAndSeedAsync(database);
+        await DatabaseInitializer.ResetAndInitializeAsync(database);
     }
 }
 
