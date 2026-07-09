@@ -2,7 +2,7 @@ using Portfolio.Api.Base;
 
 namespace Portfolio.Api.Project;
 
-public sealed class ProjectDocument : DocumentBase
+public sealed class ProjectDocument : BaseDocument
 {
     public const string CollectionName = "project";
     /// <summary>
