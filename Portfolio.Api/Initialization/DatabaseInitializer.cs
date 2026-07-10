@@ -1,4 +1,7 @@
 using MongoDB.Driver;
+using Portfolio.Api.Education;
+using Portfolio.Api.Experience;
+using Portfolio.Api.Project;
 using Portfolio.Api.Site;
 using Portfolio.Api.SkillCategory;
 
@@ -26,8 +29,9 @@ public static class DatabaseInitializer
 
         await new SiteInitializer(database).InitializeAsync();
         await new SkillCategoryInitializer(database).InitializeAsync();
-        //await SeedProjectsAsync(database);
-        //await SeedExperienceAsync(database);
+        await new EducationInitializer(database).InitializeAsync();
+        await new ProjectInitializer(database).InitializeAsync();
+        await new ExperienceInitializer(database).InitializeAsync();
         //await CreateIndexesAsync(database);
     }
 }

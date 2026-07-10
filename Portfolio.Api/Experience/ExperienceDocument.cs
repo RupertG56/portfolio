@@ -5,6 +5,7 @@ namespace Portfolio.Api.Experience;
 public sealed class ExperienceDocument : ResumeEntryDocumentBase
 {
     public const string CollectionName = "experience";
+    public string Title { get; set; } = string.Empty;
     public string Company { get; set; } = string.Empty;
     public string Location { get; set; } = string.Empty;
     public DateOnly StartDate { get; set; } = DateOnly.FromDateTime(DateTime.Today);
