@@ -1,0 +1,2 @@
+- Used REST APIs and ASP.NET Core to replace outdated and unsupported frameworkes.
+- Used C# and .NET Core to implement new features and functionality.
