@@ -1,21 +1,7 @@
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Portfolio.Api.Common;
-/*
 
- * Base class for documents stored in MongoDB.
- {
-	"_id": "",
-	"title": "",
-	"slug": "",
-	"summary": "",
-	"featured": false,
-	"sortOrder": 1,
-	"isPublished": false,
-	"createdAt": "2026-07-06T00:00:00Z",
-	"updatedAt": "2026-07-06T00:00:00Z"
-};
- */
 public abstract class BaseDocument
 {
 	[BsonId]
