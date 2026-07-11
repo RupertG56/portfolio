@@ -1,6 +1,6 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Portfolio.Api.Base;
+namespace Portfolio.Api.Common;
 /*
 
  * Base class for documents stored in MongoDB.

@@ -1,4 +1,4 @@
-namespace Portfolio.Api.Options;
+namespace Portfolio.Api.Common;
 
 public sealed class ProviderOptions
 {

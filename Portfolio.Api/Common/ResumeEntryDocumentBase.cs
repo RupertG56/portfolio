@@ -1,6 +1,6 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Portfolio.Api.Base;
+namespace Portfolio.Api.Common;
 
 public abstract class ResumeEntryDocumentBase
 {

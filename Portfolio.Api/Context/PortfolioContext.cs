@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Portfolio.Api.Options;
+using Portfolio.Api.Common;
 using Portfolio.Api.BlogPost;
 using Portfolio.Api.Education;
 using Portfolio.Api.Experience;

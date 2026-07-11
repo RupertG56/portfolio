@@ -1,5 +1,5 @@
 using MongoDB.Bson.Serialization.Attributes;
-using Portfolio.Api.Base;
+using Portfolio.Api.Common;
 
 namespace Portfolio.Api.Education;
 
