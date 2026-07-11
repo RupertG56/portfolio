@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using MongoDB.Driver;
 using Portfolio.Api.Initialization;
 
@@ -12,7 +11,7 @@ public class ProjectInitializer(IMongoDatabase database) : IInitialize
     {
         // Implement your project initialization logic here
         // For example, you can seed the "project" collection with initial data
-        var projectCollection = _database.GetCollection<ProjectDocument>("project");
+        var projectCollection = _database.GetCollection<ProjectDocument>(ProjectDocument.CollectionName);
 
         var initialProjects = new List<ProjectDocument>
         {
@@ -38,7 +37,7 @@ public class ProjectInitializer(IMongoDatabase database) : IInitialize
                 Title = "Factorio Servers",
                 Summary = "Containerized Factorio Dedicated Server Infrastructure",
                 DescriptionMarkdown = """
-                - Designed automated conatiner deployment for game servers using rootless Podman
+                - Designed automated container deployment for game servers using rootless Podman
                 - Implemented systemd quadlets for container lifecycle management and automation
                 - Built monitoring scripts to manage uptime and log analysis.
                 """,
@@ -76,7 +75,7 @@ public class ProjectInitializer(IMongoDatabase database) : IInitialize
             {
                 Id = "media-encoding-automation",
                 Title = "Media Encoding Automation",
-                Summary = "Using ffmpeg with bash scripts to automated encoding tv series and movies",
+                Summary = "Using ffmpeg with bash scripts to automate encoding TV series and movies",
                 Technologies =
                 [
                     new()
