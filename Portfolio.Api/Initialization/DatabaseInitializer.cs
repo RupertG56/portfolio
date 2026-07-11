@@ -1,4 +1,5 @@
 using MongoDB.Driver;
+using Portfolio.Api.BlogPost;
 using Portfolio.Api.Education;
 using Portfolio.Api.Experience;
 using Portfolio.Api.Project;
@@ -32,6 +33,7 @@ public static class DatabaseInitializer
         await new EducationInitializer(database).InitializeAsync();
         await new ProjectInitializer(database).InitializeAsync();
         await new ExperienceInitializer(database).InitializeAsync();
+        await new BlogPostInitializer(database).InitializeAsync();
         //await CreateIndexesAsync(database);
     }
 }
