@@ -26,7 +26,6 @@ public static class DatabaseInitializer
         await new ProjectInitializer(database).InitializeAsync();
         await new ExperienceInitializer(database).InitializeAsync();
         await new BlogPostInitializer(database).InitializeAsync();
-
         //await CreateIndexesAsync(database);
     }
 }

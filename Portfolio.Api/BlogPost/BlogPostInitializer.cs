@@ -13,7 +13,7 @@ public class BlogPostInitializer(IMongoDatabase mongoDatabase) : IInitialize
 			Id = "getting-started-with-csharp",
 			Title = "Getting Started with C#",
 			ContentMarkdown = """
-			# Learn the basics of C\# programming language and its core concepts.
+			# Learn the basics of C# programming language and its core concepts.
 			""",
 			Author = "Ryan Jones",
 			CreatedAt = System.DateTime.UtcNow.AddDays(-10),
