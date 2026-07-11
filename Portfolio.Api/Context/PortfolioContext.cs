@@ -9,7 +9,16 @@ using Portfolio.Api.Site;
 
 namespace Portfolio.Api.Context;
 
-public class PortfolioContext
+public interface IPortfolioContext
+{
+    IMongoCollection<ProjectDocument> Projects { get; }
+    IMongoCollection<ExperienceDocument> Experience { get; }
+    IMongoCollection<BlogPostDocument> BlogPosts { get; }
+    IMongoCollection<SiteDocument> Site { get; }
+    IMongoCollection<EducationDocument> Education { get; }
+}
+
+public class PortfolioContext : IPortfolioContext
 {
     private readonly IMongoClient _mongoClient;
     private readonly IMongoDatabase _database;
