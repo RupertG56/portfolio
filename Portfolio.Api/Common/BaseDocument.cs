@@ -10,6 +10,7 @@ public abstract class BaseDocument
 	public bool Featured { get; set; } = false;
 	public int SortOrder { get; set; } = 1;
 	public bool IsPublished { get; set; } = false;
-	public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
+	public bool IsDeleted { get; set; } = false;
+	public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 	public DateTime? UpdatedAt { get; set; } = null;
 }
