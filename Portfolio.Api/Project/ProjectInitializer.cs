@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using MongoDB.Driver;
 using Portfolio.Api.Initialization;
 
@@ -12,7 +11,7 @@ public class ProjectInitializer(IMongoDatabase database) : IInitialize
     {
         // Implement your project initialization logic here
         // For example, you can seed the "project" collection with initial data
-        var projectCollection = _database.GetCollection<ProjectDocument>("project");
+        var projectCollection = _database.GetCollection<ProjectDocument>(ProjectDocument.CollectionName);
 
         var initialProjects = new List<ProjectDocument>
         {

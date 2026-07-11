@@ -4,6 +4,7 @@ namespace Portfolio.Api.SkillCategory;
 
 public class SkillCategoryDocument : BaseDocument
 {
+    public const string CollectionName = "skillCategory";
     public string Name { get; set; } = null!;
     public List<SkillDocument> Skills { get; set; } = [];
 }

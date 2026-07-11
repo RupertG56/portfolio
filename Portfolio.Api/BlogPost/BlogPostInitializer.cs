@@ -3,7 +3,7 @@ using MongoDB.Driver;
 
 namespace Portfolio.Api.BlogPost;
 
-public class BlogPostInitilizer(IMongoDatabase mongoDatabase) : IInitialize
+public class BlogPostInitializer(IMongoDatabase mongoDatabase) : IInitialize
 {
 	private readonly IMongoDatabase _mongoDatabase = mongoDatabase;
 	private readonly List<BlogPostDocument> _samplePosts = new()
