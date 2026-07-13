@@ -41,4 +41,28 @@ public static class ProjectMapperExtensions
             CompletedOn = domain.CompletedOn
         };
     }
+
+    public static ProjectDto ToDto(this Project domain)
+    {
+        return new ProjectDto(
+            domain.Id,
+            domain.Title,
+            domain.Summary,
+            domain.DescriptionMarkdown,
+            [.. domain.Technologies.Select(t => new TechnologyDto(t.Name, t.Url, t.Icon))],
+            new ProjectLinksDto(domain.Links.Demo, domain.Links.GitHub, domain.Links.Documentation),
+            [.. domain.Images.Select(i => new ProjectImageDto(i.Url, i.AltText, i.SortOrder))],
+            domain.SortOrder
+        );
+    }
+
+    public static ProjectSummaryDto ToSummaryDto(this Project domain)
+    {
+        return new ProjectSummaryDto(
+            domain.Id,
+            domain.Title,
+            domain.Summary,
+            domain.SortOrder
+        );
+    }
 }

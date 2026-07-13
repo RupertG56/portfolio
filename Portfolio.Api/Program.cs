@@ -3,6 +3,7 @@ using MongoDB.Driver;
 using Portfolio.Api.Common;
 using Portfolio.Api.Context;
 using Portfolio.Api.Initialization;
+using Portfolio.Api.Project;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,6 +42,7 @@ app.UseHttpsRedirection();
 
 
 //TODO: map endpoints for the API here
+app.MapProjectEndpoints();
 app.MapGet("/health", () => Results.Ok(new { status = "Healthy", timestamp = DateTime.UtcNow }));
 
 
