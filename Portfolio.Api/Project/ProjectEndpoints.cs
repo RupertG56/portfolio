@@ -12,7 +12,7 @@ public static class ProjectEndpoints
         projectGroup.MapGet("/", GetAllProjectSummaries)
             .WithName("GetProjects");
         projectGroup.MapGet("/{id}", GetProjectById)
-            .WithName("GetProjects");
+            .WithName("GetProjectById");
         //projectGroup.MapPost("/", CreateProject);
         //projectGroup.MapPut("/{id}", UpdateProject);
         //projectGroup.MapDelete("/{id}", DeleteProject);

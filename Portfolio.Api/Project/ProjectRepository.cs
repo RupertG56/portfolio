@@ -12,40 +12,40 @@ public class ProjectRepository(IPortfolioContext context)
     public async Task<IReadOnlyList<Project>> GetPublishedAsync(
         CancellationToken cancellationToken = default)
     {
-        return await _context.Projects
+        var projects = await _context.Projects
             .Find(doc => doc.IsPublished && !doc.IsDeleted)
             .SortBy(p => p.SortOrder)
-            .Project(p => p.ToDomain())
             .ToListAsync(cancellationToken);
+        return [.. projects.Select(p => p.ToDomain())];
     }
 
     public async Task<IReadOnlyList<Project>> GetAllPublishedAsync(
         CancellationToken cancellationToken = default)
     {
-        return await _context.Projects
+        var projects = await _context.Projects
             .Find(doc => doc.IsPublished)
             .SortBy(p => p.SortOrder)
-            .Project(p => p.ToDomain())
             .ToListAsync(cancellationToken);
+        return [.. projects.Select(p => p.ToDomain())];
     }
 
     public async Task<IReadOnlyList<Project>> GetAllDeletedAsync(
         CancellationToken cancellationToken = default)
     {
-        return await _context.Projects
+        var projects = await _context.Projects
             .Find(doc => doc.IsDeleted)
             .SortBy(p => p.SortOrder)
-            .Project(p => p.ToDomain())
             .ToListAsync(cancellationToken);
+        return [.. projects.Select(p => p.ToDomain())];
     }
 
-    public async Task<Project> GetByIdAsync(string id,
+    public async Task<Project?> GetByIdAsync(string id,
         CancellationToken cancellationToken = default)
     {
-        return await _context.Projects
+        var doc = await _context.Projects
             .Find(doc => doc.Id == id)
-            .Project(p => p.ToDomain())
             .FirstOrDefaultAsync(cancellationToken);
+        return doc?.ToDomain();
     }
 
     public async Task<IReadOnlyList<Project>> GetAllAsync(

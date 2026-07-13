@@ -11,6 +11,7 @@ namespace Portfolio.Api.Context;
 
 public interface IPortfolioContext
 {
+    IMongoDatabase Database { get; }
     IMongoCollection<ProjectDocument> Projects { get; }
     IMongoCollection<ExperienceDocument> Experience { get; }
     IMongoCollection<BlogPostDocument> BlogPosts { get; }

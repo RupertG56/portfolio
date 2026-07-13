@@ -19,7 +19,9 @@ builder.Services.AddSingleton<IMongoClient>(sp =>
     var options = sp.GetRequiredService<IOptions<ProviderOptions>>().Value;
     return new MongoClient(options.ConnectionString);
 });
-builder.Services.AddSingleton<PortfolioContext>();
+builder.Services.AddSingleton<IPortfolioContext, PortfolioContext>();
+builder.Services.AddScoped<IBaseDomainRepository<Project>, ProjectRepository>();
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
 var app = builder.Build();
 
@@ -32,7 +34,7 @@ if (app.Environment.IsDevelopment())
     if (initializeDatabase)
     {
         using var scope = app.Services.CreateScope();
-        var mongoContext = scope.ServiceProvider.GetRequiredService<PortfolioContext>();
+        var mongoContext = scope.ServiceProvider.GetRequiredService<IPortfolioContext>();
         var database = mongoContext.Database;
         await DatabaseInitializer.ResetAndInitializeAsync(database);
     }
@@ -42,8 +44,9 @@ app.UseHttpsRedirection();
 
 
 //TODO: map endpoints for the API here
-app.MapProjectEndpoints();
+//app.MapProjectEndpoints();
 app.MapGet("/health", () => Results.Ok(new { status = "Healthy", timestamp = DateTime.UtcNow }));
+app.MapProjectEndpoints();
 
 
 app.Run();
