@@ -1,4 +1,5 @@
 using Portfolio.Domain.Common;
+
 namespace Portfolio.Domain.Project;
 
 public class Project : BaseDomain
