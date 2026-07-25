@@ -3,7 +3,7 @@
     "Name": "Api-Wpf",
     "Projects": [
       {
-        "Path": "Portfolio.AdminApp\\AdminApp.csproj",
+        "Path": "Portfolio.AdminApp\\Portfolio.AdminApp.csproj",
         "Action": "Start",
         "DebugTarget": "AdminApp"
       },
