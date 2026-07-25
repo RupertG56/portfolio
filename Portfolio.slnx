@@ -28,9 +28,6 @@
   <Folder Name="/Portfolio.Web/src/content/">
     <File Path="Portfolio.Web/src/content/IconLogo.tsx" />
   </Folder>
-
-  <Project Path="Portfolio.AdminApp.Test/AdminApp.Test.csproj" />
-  <Project Path="Portfolio.AdminApp/AdminApp.csproj" />
   <Project Path="Portfolio.Api/Portfolio.Api.csproj" />
 
 </Solution>
