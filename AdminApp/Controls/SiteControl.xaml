@@ -6,7 +6,28 @@
              xmlns:local="clr-namespace:AdminApp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+	<Grid>
+		<!-- Display Mode -->
+		<Grid Visibility="{Binding IsEditing, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Inverted}">
+			<StackPanel>
+				<TextBlock Text="{Binding Name}" />
+				<TextBlock Text="{Binding Email}" />
+				<!-- Other display fields -->
+				<Button Command="{Binding EditCommand}" Content="Edit" />
+			</StackPanel>
+		</Grid>
+
+		<!-- Edit Mode -->
+		<Grid Visibility="{Binding IsEditing, Converter={StaticResource BoolToVisibilityConverter}}">
+			<StackPanel>
+				<TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+				<TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
+				<!-- Other editable fields -->
+				<StackPanel Orientation="Horizontal">
+					<Button Command="{Binding SaveCommand}" Content="Save" />
+					<Button Command="{Binding CancelCommand}" Content="Cancel" />
+				</StackPanel>
+			</StackPanel>
+		</Grid>
+	</Grid>
 </UserControl>
