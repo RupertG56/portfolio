@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Api-Wpf",
+    "Projects": [
+      {
+        "Path": "AdminApp\\AdminApp.csproj",
+        "Action": "Start",
+        "DebugTarget": "AdminApp"
+      },
+      {
+        "Path": "Portfolio.Api\\Portfolio.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]
