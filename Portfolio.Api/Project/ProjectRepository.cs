@@ -1,16 +1,16 @@
 using MongoDB.Driver;
 using Portfolio.Api.Common;
-using PD = Portfolio.Domain.Project;
+using Portfolio.Domain.Project;
 using Portfolio.Api.Context;
 
 namespace Portfolio.Api.Project;
 
 public class ProjectRepository(IPortfolioContext context)
-    : IBaseDomainRepository<PD.Project>
+    : IBaseDomainRepository<ProjectModel>
 {
     private readonly IPortfolioContext _context = context;
 
-    public async Task<IReadOnlyList<PD.Project>> GetPublishedAsync(
+    public async Task<IReadOnlyList<ProjectModel>> GetPublishedAsync(
         CancellationToken cancellationToken = default)
     {
         var projects = await _context.Projects
@@ -20,7 +20,7 @@ public class ProjectRepository(IPortfolioContext context)
         return [.. projects.Select(p => p.ToDomain())];
     }
 
-    public async Task<IReadOnlyList<PD.Project>> GetAllPublishedAsync(
+    public async Task<IReadOnlyList<ProjectModel>> GetAllPublishedAsync(
         CancellationToken cancellationToken = default)
     {
         var projects = await _context.Projects
@@ -30,7 +30,7 @@ public class ProjectRepository(IPortfolioContext context)
         return [.. projects.Select(p => p.ToDomain())];
     }
 
-    public async Task<IReadOnlyList<PD.Project>> GetAllDeletedAsync(
+    public async Task<IReadOnlyList<ProjectModel>> GetAllDeletedAsync(
         CancellationToken cancellationToken = default)
     {
         var projects = await _context.Projects
@@ -40,7 +40,7 @@ public class ProjectRepository(IPortfolioContext context)
         return [.. projects.Select(p => p.ToDomain())];
     }
 
-    public async Task<PD.Project?> GetByIdAsync(string id,
+    public async Task<ProjectModel?> GetByIdAsync(string id,
         CancellationToken cancellationToken = default)
     {
         var doc = await _context.Projects
@@ -49,7 +49,7 @@ public class ProjectRepository(IPortfolioContext context)
         return doc?.ToDomain();
     }
 
-    public async Task<IReadOnlyList<PD.Project>> GetAllAsync(
+    public async Task<IReadOnlyList<ProjectModel>> GetAllAsync(
         CancellationToken cancellationToken = default)
     {
         return await _context.Projects
@@ -59,7 +59,7 @@ public class ProjectRepository(IPortfolioContext context)
             .ToListAsync(cancellationToken);
     }
 
-    public async Task<bool> CreateAsync(PD.Project project, CancellationToken cancellationToken = default)
+    public async Task<bool> CreateAsync(ProjectModel project, CancellationToken cancellationToken = default)
     {
         var doc = project.ToDocument();
         doc.CreatedAt = DateTime.UtcNow;
@@ -68,7 +68,7 @@ public class ProjectRepository(IPortfolioContext context)
         return true;
     }
 
-    public async Task<bool> UpdateAsync(string id, PD.Project project,
+    public async Task<bool> UpdateAsync(string id, ProjectModel project,
         CancellationToken cancellationToken = default)
     {
         var doc = project.ToDocument();

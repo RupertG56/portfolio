@@ -2,7 +2,7 @@ using Portfolio.Domain.Common;
 
 namespace Portfolio.Domain.Project;
 
-public class Project : BaseDomain
+public class ProjectModel : BaseDomain
 {
     /// <summary>
     /// Short description used in cards and project lists.

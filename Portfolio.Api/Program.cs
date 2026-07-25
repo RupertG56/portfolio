@@ -21,7 +21,7 @@ builder.Services.AddSingleton<IMongoClient>(sp =>
     return new MongoClient(options.ConnectionString);
 });
 builder.Services.AddSingleton<IPortfolioContext, PortfolioContext>();
-builder.Services.AddScoped<IBaseDomainRepository<Project>, ProjectRepository>();
+builder.Services.AddScoped<IBaseDomainRepository<ProjectModel>, ProjectRepository>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 
 var app = builder.Build();

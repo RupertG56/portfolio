@@ -1,5 +1,5 @@
 using Portfolio.Api.Common;
-using PD = Portfolio.Domain.Project;
+using Portfolio.Domain.Project;
 
 namespace Portfolio.Api.Project;
 
@@ -9,16 +9,16 @@ public interface IProjectService
     Task<ResponseDto<ProjectDto>> GetProjectByIdAsync(string id);
 }
 
-public class ProjectService(IBaseDomainRepository<PD.Project> projectRepository) : IProjectService
+public class ProjectService(IBaseDomainRepository<ProjectModel> projectRepository) : IProjectService
 {
-    private readonly IBaseDomainRepository<PD.Project> _projectRepository = projectRepository;
+    private readonly IBaseDomainRepository<ProjectModel> _projectRepository = projectRepository;
 
     public async Task<ResponseDto<ProjectDto>> GetProjectByIdAsync(string id)
     {
         var project = await _projectRepository.GetByIdAsync(id);
         if (project is null)
         {
-            return ResponseDto<ProjectDto>.FailureResult($"Project with ID '{id}' not found.");
+            return ResponseDto<ProjectDto>.FailureResult($"ProjectModel with ID '{id}' not found.");
         }
 
         return ResponseDto<ProjectDto>.SuccessResult(project.ToDto());

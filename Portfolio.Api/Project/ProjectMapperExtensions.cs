@@ -1,12 +1,12 @@
-using PD = Portfolio.Domain.Project;
+using Portfolio.Domain.Project;
 
 namespace Portfolio.Api.Project;
 
 public static class ProjectMapperExtensions
 {
-    public static PD.Project ToDomain(this ProjectDocument document)
+    public static ProjectModel ToDomain(this ProjectDocument document)
     {
-        return new PD.Project
+        return new ProjectModel
         {
             Id = document.Id,
             Title = document.Title,
@@ -23,7 +23,7 @@ public static class ProjectMapperExtensions
         };
     }
 
-    public static ProjectDocument ToDocument(this PD.Project domain)
+    public static ProjectDocument ToDocument(this ProjectModel domain)
     {
         return new ProjectDocument
         {
@@ -42,7 +42,7 @@ public static class ProjectMapperExtensions
         };
     }
 
-    public static ProjectDto ToDto(this PD.Project domain)
+    public static ProjectDto ToDto(this ProjectModel domain)
     {
         return new ProjectDto(
             domain.Id,
@@ -56,7 +56,7 @@ public static class ProjectMapperExtensions
         );
     }
 
-    public static ProjectSummaryDto ToSummaryDto(this PD.Project domain)
+    public static ProjectSummaryDto ToSummaryDto(this ProjectModel domain)
     {
         return new ProjectSummaryDto(
             domain.Id,

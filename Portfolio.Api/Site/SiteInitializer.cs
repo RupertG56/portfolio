@@ -1,5 +1,6 @@
 using MongoDB.Driver;
 using Portfolio.Api.Initialization;
+using Portfolio.Domain.Site;
 
 namespace Portfolio.Api.Site;
 
