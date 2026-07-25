@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="BlogPost\" />
+    <Folder Include="Education\" />
+    <Folder Include="Experience\" />
+    <Folder Include="Common\" />
+    <Folder Include="Site\" />
+    <Folder Include="Project\" />
+  </ItemGroup>
+
 </Project>

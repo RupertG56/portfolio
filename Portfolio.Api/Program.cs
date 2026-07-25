@@ -4,6 +4,7 @@ using Portfolio.Api.Common;
 using Portfolio.Api.Context;
 using Portfolio.Api.Initialization;
 using Portfolio.Api.Project;
+using Portfolio.Domain.Project;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

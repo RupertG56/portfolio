@@ -1,3 +1,5 @@
+using Portfolio.Domain.Common;
+
 namespace Portfolio.Api.Common;
 
 public interface IBaseDomainRepository<TDomain> : IRepository<TDomain>

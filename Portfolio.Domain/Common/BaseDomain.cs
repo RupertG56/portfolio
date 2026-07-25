@@ -1,4 +1,4 @@
-namespace Portfolio.Api.Common;
+namespace Portfolio.Domain.Common;
 
 public class BaseDomain
 {
