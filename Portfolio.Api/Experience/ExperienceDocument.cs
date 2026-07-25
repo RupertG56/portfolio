@@ -1,8 +1,8 @@
-using Portfolio.Api.Base;
+using Portfolio.Api.Common;
 
 namespace Portfolio.Api.Experience;
 
-public sealed class ExperienceDocument : ResumeEntryDocumentBase
+public sealed class ExperienceDocument : ResumeEntryBaseDocument
 {
     public const string CollectionName = "experience";
     public string Title { get; set; } = string.Empty;

@@ -1,10 +1,8 @@
 using Portfolio.Api.Common;
-
 namespace Portfolio.Api.Project;
 
-public sealed class ProjectDocument : BaseDocument
+public class Project : BaseDomain
 {
-    public const string CollectionName = "project";
     /// <summary>
     /// Short description used in cards and project lists.
     /// </summary>
@@ -36,29 +34,3 @@ public sealed class ProjectDocument : BaseDocument
     public DateOnly? CompletedOn { get; set; }
 }
 
-public sealed class ProjectLinks
-{
-    public string? Demo { get; set; }
-    public string? GitHub { get; set; }
-    public string? Documentation { get; set; }
-}
-
-public sealed class ProjectImage
-{
-    public string Url { get; init; } = string.Empty;
-
-    public string AltText { get; init; } = string.Empty;
-
-    public int SortOrder { get; init; }
-}
-
-public sealed class Technology
-{
-    public string Name { get; init; } = string.Empty;
-
-    public bool Featured { get; init; }
-
-    public string? Url { get; init; }
-
-    public string? Icon { get; init; }
-}

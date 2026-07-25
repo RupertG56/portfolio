@@ -1,9 +1,9 @@
 using MongoDB.Bson.Serialization.Attributes;
-using Portfolio.Api.Base;
+using Portfolio.Api.Common;
 
 namespace Portfolio.Api.Education;
 
-public sealed class EducationDocument : ResumeEntryDocumentBase
+public sealed class EducationDocument : ResumeEntryBaseDocument
 {
     public const string CollectionName = "education";
     public string Institution { get; set; } = string.Empty;

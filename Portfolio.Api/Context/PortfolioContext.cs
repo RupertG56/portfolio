@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Portfolio.Api.Options;
+using Portfolio.Api.Common;
 using Portfolio.Api.BlogPost;
 using Portfolio.Api.Education;
 using Portfolio.Api.Experience;
@@ -9,7 +9,17 @@ using Portfolio.Api.Site;
 
 namespace Portfolio.Api.Context;
 
-public class PortfolioContext
+public interface IPortfolioContext
+{
+    IMongoDatabase Database { get; }
+    IMongoCollection<ProjectDocument> Projects { get; }
+    IMongoCollection<ExperienceDocument> Experience { get; }
+    IMongoCollection<BlogPostDocument> BlogPosts { get; }
+    IMongoCollection<SiteDocument> Site { get; }
+    IMongoCollection<EducationDocument> Education { get; }
+}
+
+public class PortfolioContext : IPortfolioContext
 {
     private readonly IMongoClient _mongoClient;
     private readonly IMongoDatabase _database;

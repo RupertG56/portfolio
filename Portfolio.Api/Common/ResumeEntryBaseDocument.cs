@@ -1,8 +1,8 @@
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Portfolio.Api.Base;
+namespace Portfolio.Api.Common;
 
-public abstract class ResumeEntryDocumentBase
+public abstract class ResumeEntryBaseDocument
 {
     [BsonId]
     public string Id { get; init; } = string.Empty;
