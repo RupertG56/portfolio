@@ -11,10 +11,6 @@
 	<UserControl.Resources>
 		<!-- Framework converter used to swap controls dynamically -->
 		<BooleanToVisibilityConverter x:Key="BoolToVis" />
-		<!-- The implicit DataTemplate links the ViewModel to the UserControl -->
-		<DataTemplate DataType="{x:Type vm:SiteViewModel}">
-			<local:MyUserControl />
-		</DataTemplate>
 	</UserControl.Resources>
 
 	<Grid Margin="20">
@@ -31,18 +27,18 @@
 			<Label Content="First Name:"/>
 			<Grid>
 				<TextBlock Text="{Binding UserFirstName}" FontSize="14" Margin="5"
-                           Visibility="{Binding IsViewMode, Converter={StaticKey BoolToVis}}"/>
+                           Visibility="{Binding IsViewMode, Converter={StaticResource BoolToVis}}"/>
 				<TextBox Text="{Binding UserFirstName, UpdateSourceTrigger=PropertyChanged}"
-                         Visibility="{Binding IsEditMode, Converter={StaticKey BoolToVis}}"/>
+                         Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVis}}"/>
 			</Grid>
 
 			<!-- Last Name Field -->
 			<Label Content="Last Name:"/>
 			<Grid>
 				<TextBlock Text="{Binding UserLastName}" FontSize="14" Margin="5"
-                           Visibility="{Binding IsViewMode, Converter={StaticKey BoolToVis}}"/>
+                           Visibility="{Binding IsViewMode, Converter={StaticResource BoolToVis}}"/>
 				<TextBox Text="{Binding UserLastName, UpdateSourceTrigger=PropertyChanged}"
-                         Visibility="{Binding IsEditMode, Converter={StaticKey BoolToVis}}"/>
+                         Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVis}}"/>
 			</Grid>
 		</StackPanel>
 
@@ -50,12 +46,12 @@
 		<StackPanel Grid.Row="1" Margin="0,20,0,0">
 
 			<!-- View Mode Controls -->
-			<StackPanel Orientation="Horizontal" Visibility="{Binding IsViewMode, Converter={StaticKey BoolToVis}}">
+			<StackPanel Orientation="Horizontal" Visibility="{Binding IsViewMode, Converter={StaticResource BoolToVis}}">
 				<Button Content="Edit Details" Command="{Binding EnterEditModeCommand}" Width="100" Height="30"/>
 			</StackPanel>
 
 			<!-- Edit Mode Controls -->
-			<StackPanel Orientation="Horizontal" Visibility="{Binding IsEditMode, Converter={StaticKey BoolToVis}}">
+			<StackPanel Orientation="Horizontal" Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVis}}">
 				<Button Content="Save" Command="{Binding SaveUserChangesCommand}" Width="100" Height="30" Margin="0,0,10,0"/>
 				<Button Content="Cancel" Command="{Binding CancelEditCommand}" Width="100" Height="30"/>
 			</StackPanel>
