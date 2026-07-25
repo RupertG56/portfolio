@@ -1,5 +1,6 @@
 using Portfolio.Api.Common;
 using Portfolio.Domain.Project;
+using Portfolio.Contracts.Project;
 
 namespace Portfolio.Api.Project;
 

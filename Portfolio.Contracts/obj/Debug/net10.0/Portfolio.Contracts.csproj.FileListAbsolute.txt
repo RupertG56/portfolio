@@ -1,0 +1,12 @@
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\bin\Debug\net10.0\Portfolio.Contracts.deps.json
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\bin\Debug\net10.0\Portfolio.Contracts.dll
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\bin\Debug\net10.0\Portfolio.Contracts.pdb
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\Portfolio.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\Portfolio.Contracts.AssemblyInfoInputs.cache
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\Portfolio.Contracts.AssemblyInfo.cs
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\Portfolio.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\Portfolio.Contracts.sourcelink.json
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\Portfolio.Contracts.dll
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\refint\Portfolio.Contracts.dll
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\Portfolio.Contracts.pdb
+C:\Users\rjone\source\repos\Portfolio\Portfolio.Contracts\obj\Debug\net10.0\ref\Portfolio.Contracts.dll

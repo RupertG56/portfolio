@@ -2,7 +2,7 @@
 
 namespace Portfolio.AdminApp.ViewModel
 {
-	public partial class SiteViewModel : ObservableObject
-	{
-	}
+    public partial class SiteViewModel : ObservableObject
+    {
+    }
 }

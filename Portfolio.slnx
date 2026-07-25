@@ -31,6 +31,7 @@
   <Project Path="Portfolio.AdminApp.Test/Portfolio.AdminApp.Test.csproj" />
   <Project Path="Portfolio.AdminApp/Portfolio.AdminApp.csproj" />
   <Project Path="Portfolio.Api/Portfolio.Api.csproj" />
+  <Project Path="Portfolio.Contracts/Portfolio.Contracts.csproj" Id="4eaeb24c-e2cd-4a83-a7de-5f5fecd93ff2" />
   <Project Path="Portfolio.Domain/Portfolio.Domain.csproj" Id="8e8639f0-4b64-4749-9aba-3df4cd67d9e8" />
 
 </Solution>
