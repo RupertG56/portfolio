@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace AdminApp.Controls
+namespace Portfolio.AdminApp.Controls
 {
 	/// <summary>
 	/// Interaction logic for SiteControl.xaml

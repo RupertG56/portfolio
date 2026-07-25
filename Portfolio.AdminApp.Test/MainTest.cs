@@ -1,4 +1,4 @@
-﻿namespace AdminApp.Test
+﻿namespace Portfolio.AdminApp.Test
 {
 	public class MainTest
 	{

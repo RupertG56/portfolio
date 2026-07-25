@@ -1,13 +1,10 @@
-﻿using AdminApp.ViewModel;
+﻿using Portfolio.AdminApp.ViewModel;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-using System.Configuration;
-using System.Data;
 using System.Windows;
 
-namespace AdminApp
+namespace Portfolio.AdminApp
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

@@ -1,10 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace AdminApp.ViewModel
+namespace Portfolio.AdminApp.ViewModel
 {
 	public partial class MainViewModel : ObservableObject
 	{
