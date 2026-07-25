@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="AdminApp.Controls.SiteControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdminApp"
+			 xmlns:vm="clr-namespace:AdminApp.ViewModel"
+			 xmlns:controls="clr-namespace:AdminApp.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+	<UserControl.Resources>
+		<!-- Framework converter used to swap controls dynamically -->
+		<BooleanToVisibilityConverter x:Key="BoolToVis" />
+	</UserControl.Resources>
+
+	<Grid Margin="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<!-- Fields -->
+			<RowDefinition Height="Auto"/>
+			<!-- Actions Panel -->
+		</Grid.RowDefinitions>
+
+		<!-- DATA FORM LAYER -->
+		<StackPanel Grid.Row="0">
+			<!-- First Name Field -->
+			<Label Content="First Name:"/>
+			<Grid>
+				<TextBlock Text="{Binding UserFirstName}" FontSize="14" Margin="5"
+                           Visibility="{Binding IsViewMode, Converter={StaticResource BoolToVis}}"/>
+				<TextBox Text="{Binding UserFirstName, UpdateSourceTrigger=PropertyChanged}"
+                         Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVis}}"/>
+			</Grid>
+
+			<!-- Last Name Field -->
+			<Label Content="Last Name:"/>
+			<Grid>
+				<TextBlock Text="{Binding UserLastName}" FontSize="14" Margin="5"
+                           Visibility="{Binding IsViewMode, Converter={StaticResource BoolToVis}}"/>
+				<TextBox Text="{Binding UserLastName, UpdateSourceTrigger=PropertyChanged}"
+                         Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVis}}"/>
+			</Grid>
+		</StackPanel>
+
+		<!-- ACTION LAYER (Swaps out buttons conditionally) -->
+		<StackPanel Grid.Row="1" Margin="0,20,0,0">
+
+			<!-- View Mode Controls -->
+			<StackPanel Orientation="Horizontal" Visibility="{Binding IsViewMode, Converter={StaticResource BoolToVis}}">
+				<Button Content="Edit Details" Command="{Binding EnterEditModeCommand}" Width="100" Height="30"/>
+			</StackPanel>
+
+			<!-- Edit Mode Controls -->
+			<StackPanel Orientation="Horizontal" Visibility="{Binding IsEditMode, Converter={StaticResource BoolToVis}}">
+				<Button Content="Save" Command="{Binding SaveUserChangesCommand}" Width="100" Height="30" Margin="0,0,10,0"/>
+				<Button Content="Cancel" Command="{Binding CancelEditCommand}" Width="100" Height="30"/>
+			</StackPanel>
+
+		</StackPanel>
+	</Grid>
+</UserControl>

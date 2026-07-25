@@ -1,0 +1,36 @@
+<Solution>
+  <Folder Name="/Portfolio.Web/">
+    <File Path="Portfolio.Web/.gitignore" />
+    <File Path="Portfolio.Web/Dockerfile" />
+    <File Path="Portfolio.Web/eslint.config.js" />
+    <File Path="Portfolio.Web/index.html" />
+    <File Path="Portfolio.Web/package-lock.json" />
+    <File Path="Portfolio.Web/package.json" />
+    <File Path="Portfolio.Web/README.md" />
+    <File Path="Portfolio.Web/tsconfig.app.json" />
+    <File Path="Portfolio.Web/tsconfig.json" />
+    <File Path="Portfolio.Web/tsconfig.node.json" />
+    <File Path="Portfolio.Web/vite.config.ts" />
+  </Folder>
+  <Folder Name="/Portfolio.Web/src/">
+    <File Path="Portfolio.Web/src/App.css" />
+    <File Path="Portfolio.Web/src/App.tsx" />
+    <File Path="Portfolio.Web/src/Header.tsx" />
+    <File Path="Portfolio.Web/src/index.css" />
+    <File Path="Portfolio.Web/src/main.tsx" />
+    <File Path="Portfolio.Web/src/theme.ts" />
+  </Folder>
+  <Folder Name="/Portfolio.Web/src/assets/">
+    <File Path="Portfolio.Web/src/assets/logo.png" />
+    <File Path="Portfolio.Web/src/assets/logo.svg" />
+    <File Path="Portfolio.Web/src/assets/react.svg" />
+  </Folder>
+  <Folder Name="/Portfolio.Web/src/content/">
+    <File Path="Portfolio.Web/src/content/IconLogo.tsx" />
+  </Folder>
+
+  <Project Path="Portfolio.AdminApp.Test/AdminApp.Test.csproj" />
+  <Project Path="Portfolio.AdminApp/AdminApp.csproj" />
+  <Project Path="Portfolio.Api/Portfolio.Api.csproj" />
+
+</Solution>

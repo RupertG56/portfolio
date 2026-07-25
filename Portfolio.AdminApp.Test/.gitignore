@@ -1,0 +1,42 @@
+### Visual Studio Build Outputs
+
+[Bb]in/
+[Oo]bj/
+[Log]/ 
+
+### User-specific files
+
+*.user
+*.userosscache
+*.sln.docstates 
+
+### Visual Studio Cache and Settings
+
+.vs/
+/.vs/
+_ReSharper*/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.wsuo 
+
+### NuGet Packages
+
+packages/
+*.nuget.props
+*.nuget.targets 
+
+### Rider and JetBrains
+
+.idea/ 
+
+### VS Code
+
+.vscode/ 
+
+### Publish output
+
+*.[Pp]ublish.xml
+*.azurePubxml
