@@ -1,40 +1,48 @@
-﻿using Portfolio.AdminApp.ViewModel;
-
+using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Windows;
+using Portfolio.AdminApp.Api;
+using Portfolio.AdminApp.Services;
+using Portfolio.AdminApp.ViewModel;
 
-namespace Portfolio.AdminApp
+namespace Portfolio.AdminApp;
+
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    public static IHost Host { get; } =
+        Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
+            .ConfigureServices((context, services) =>
+            {
+                services.AddHttpClient<IPortfolioApiClient, PortfolioApiClient>(
+                    client =>
+                    {
+                        var baseUrl = context.Configuration["PortfolioApi:BaseUrl"]
+                            ?? throw new InvalidOperationException(
+                                "PortfolioApi:BaseUrl is not configured.");
+
+                        client.BaseAddress = new Uri(baseUrl);
+                    });
+
+                services.AddSingleton<ISiteService, SiteService>();
+                services.AddSingleton<MainWindow>();
+                services.AddSingleton<MainViewModel>();
+            })
+            .Build();
+
+    protected override async void OnStartup(StartupEventArgs e)
     {
-        public static IHost Host { get; } =
-            Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder()
-                .ConfigureServices(services =>
-                {
-                    services.AddSingleton<MainWindow>();
-                    services.AddSingleton<MainViewModel>();
-                }).Build();
+        await Host.StartAsync();
 
-        protected override async void OnStartup(StartupEventArgs e)
-        {
-            await Host.StartAsync();
+        var window = Host.Services.GetRequiredService<MainWindow>();
+        window.Show();
 
-            var window = Host.Services.GetRequiredService<MainWindow>();
-            window.Show();
-
-            base.OnStartup(e);
-        }
-
-        protected override async void OnExit(ExitEventArgs e)
-        {
-            await Host.StopAsync();
-            Host.Dispose();
-            base.OnExit(e);
-        }
+        base.OnStartup(e);
     }
 
+    protected override async void OnExit(ExitEventArgs e)
+    {
+        await Host.StopAsync();
+        Host.Dispose();
+        base.OnExit(e);
+    }
 }

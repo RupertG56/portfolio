@@ -1,4 +1,5 @@
 using Portfolio.Contracts.Site;
+
 namespace Portfolio.Api.Site;
 
 public static class SiteEndpoints
@@ -18,23 +19,30 @@ public static class SiteEndpoints
         return endpoints;
     }
 
-    private static async Task<IResult> GetSiteDocument(ISiteService service)
+    private static async Task<IResult> GetSiteDocument(
+        ISiteService service,
+        CancellationToken cancellationToken)
     {
-        var response = await service.GetAsync();
+        var response = await service.GetAsync(cancellationToken);
         if (!response.Success)
         {
             return Results.NotFound(response);
         }
+
         return Results.Ok(response);
     }
 
-    private static async Task<IResult> UpdateSiteDocument(SiteDto site, ISiteService service)
+    private static async Task<IResult> UpdateSiteDocument(
+        SiteDto site,
+        ISiteService service,
+        CancellationToken cancellationToken)
     {
-        var response = await service.UpdateAsync(site);
+        var response = await service.UpdateAsync(site, cancellationToken);
         if (!response.Success)
         {
             return Results.BadRequest(response);
         }
+
         return Results.Ok(response);
     }
 }
