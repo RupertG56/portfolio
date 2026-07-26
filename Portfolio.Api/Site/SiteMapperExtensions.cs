@@ -79,9 +79,9 @@ public static class SiteMapperExtensions
             model.Id,
             model.Title,
             model.TagLine,
-            model.ResumeUrl,
             model.AboutMarkdown,
-            new ContactInfoDto(
+			model.ResumeUrl,
+			new ContactInfoDto(
                 model.ContactInfo?.Email ?? string.Empty,
                 model.ContactInfo?.Phone ?? string.Empty,
                 new AddressDto(

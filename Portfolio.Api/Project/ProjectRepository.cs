@@ -52,12 +52,13 @@ public class ProjectRepository(IPortfolioContext context)
     public async Task<IReadOnlyList<ProjectModel>> GetAllAsync(
         CancellationToken cancellationToken = default)
     {
-        return await _context.Projects
+        var projects = await _context.Projects
             .Find(FilterDefinition<ProjectDocument>.Empty)
             .SortBy(p => p.SortOrder)
-            .Project(p => p.ToDomain())
             .ToListAsync(cancellationToken);
-    }
+
+        return [.. projects.Select(p => p.ToDomain())];
+	}
 
     public async Task<bool> CreateAsync(ProjectModel project, CancellationToken cancellationToken = default)
     {

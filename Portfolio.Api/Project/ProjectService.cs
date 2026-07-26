@@ -1,6 +1,7 @@
 using Portfolio.Api.Common;
 using Portfolio.Domain.Project;
 using Portfolio.Contracts.Project;
+using Portfolio.Contracts.Common;
 
 namespace Portfolio.Api.Project;
 
@@ -19,16 +20,16 @@ public class ProjectService(IBaseDomainRepository<ProjectModel> projectRepositor
         var project = await _projectRepository.GetByIdAsync(id);
         if (project is null)
         {
-            return ResponseDto<ProjectDto>.FailureResult($"ProjectModel with ID '{id}' not found.");
+            return ResponseDto<ProjectDto>.FailureResult($"ProjectModel with ID '{id}' not found.")!;
         }
 
-        return ResponseDto<ProjectDto>.SuccessResult(project.ToDto());
+        return ResponseDto<ProjectDto>.SuccessResult(project.ToDto())!;
     }
 
     public async Task<ResponseDto<List<ProjectSummaryDto>>> GetAllProjectSummariesAsync()
     {
         var projects = await _projectRepository.GetAllPublishedAsync();
         var projectSummaryDtos = projects.Select(p => p.ToSummaryDto()).ToList();
-        return ResponseDto<List<ProjectSummaryDto>>.SuccessResult(projectSummaryDtos);
+        return ResponseDto<List<ProjectSummaryDto>>.SuccessResult(projectSummaryDtos)!;
     }
 }

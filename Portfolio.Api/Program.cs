@@ -1,10 +1,7 @@
-using Microsoft.Extensions.Options;
-using MongoDB.Driver;
-using Portfolio.Api.Common;
 using Portfolio.Api.Context;
 using Portfolio.Api.Initialization;
 using Portfolio.Api.Project;
-using Portfolio.Domain.Project;
+using Portfolio.Api.Site;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,16 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.Configure<ProviderOptions>(
-    builder.Configuration.GetSection(ProviderOptions.SectionName));
-builder.Services.AddSingleton<IMongoClient>(sp =>
-{
-    var options = sp.GetRequiredService<IOptions<ProviderOptions>>().Value;
-    return new MongoClient(options.ConnectionString);
-});
-builder.Services.AddSingleton<IPortfolioContext, PortfolioContext>();
-builder.Services.AddScoped<IBaseDomainRepository<ProjectModel>, ProjectRepository>();
-builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.AddConfiguredContextDependencies();
+builder.Services.AddProjectDependencies();
+builder.Services.AddSiteDependencies();
 
 var app = builder.Build();
 
@@ -48,6 +38,7 @@ app.UseHttpsRedirection();
 //app.MapProjectEndpoints();
 app.MapGet("/health", () => Results.Ok(new { status = "Healthy", timestamp = DateTime.UtcNow }));
 app.MapProjectEndpoints();
+app.MapSiteEndpoints();
 
 
 app.Run();

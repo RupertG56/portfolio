@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="BlogPost\" />
+    <Folder Include="Common\" />
   </ItemGroup>
 
 </Project>

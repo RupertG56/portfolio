@@ -1,3 +1,4 @@
+using Portfolio.Contracts.Site;
 namespace Portfolio.Api.Site;
 
 public static class SiteEndpoints
@@ -27,9 +28,9 @@ public static class SiteEndpoints
         return Results.Ok(response);
     }
 
-    private static async Task<IResult> UpdateSiteDocument(SiteDocument siteDocument, ISiteService service)
+    private static async Task<IResult> UpdateSiteDocument(SiteDto site, ISiteService service)
     {
-        var response = await service.UpdateSiteDocumentAsync(siteDocument);
+        var response = await service.UpdateAsync(site);
         if (!response.Success)
         {
             return Results.BadRequest(response);
