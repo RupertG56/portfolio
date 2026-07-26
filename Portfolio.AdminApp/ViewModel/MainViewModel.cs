@@ -1,18 +1,25 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 
 namespace Portfolio.AdminApp.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
-        [ObservableProperty]
+        public MainViewModel(SiteViewModel siteViewModel)
+		{
+			SiteViewModel = siteViewModel;
+		}
+
+		/// <summary>
+		/// This constructor is used for design-time data in the XAML designer.
+		/// </summary>
+		public MainViewModel()
+		{
+			SiteViewModel = new SiteViewModel();
+		}
+
+		[ObservableProperty]
         public partial string Title { get; set; } = "";
 
-        [RelayCommand]
-        private void Save()
-        {
-
-        }
-
-    }
+        public SiteViewModel SiteViewModel { get; set; }
+	}
 }

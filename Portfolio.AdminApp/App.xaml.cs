@@ -24,9 +24,10 @@ public partial class App : Application
                     });
 
                 services.AddSingleton<ISiteService, SiteService>();
-                services.AddSingleton<MainWindow>();
-                services.AddSingleton<MainViewModel>();
-            })
+				services.AddSingleton<SiteViewModel>();
+				services.AddSingleton<MainViewModel>();
+				services.AddSingleton<MainWindow>();
+			})
             .Build();
 
     protected override async void OnStartup(StartupEventArgs e)
