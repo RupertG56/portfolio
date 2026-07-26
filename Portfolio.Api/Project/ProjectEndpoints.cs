@@ -20,9 +20,9 @@ public static class ProjectEndpoints
         return endpoints;
     }
 
-    private static async Task<IResult> GetAllProjectSummaries(IProjectService service)
+    private static async Task<IResult> GetAllProjectSummaries(IProjectService service, CancellationToken cancellationToken)
     {
-        var response = await service.GetAllProjectSummariesAsync();
+        var response = await service.GetAllProjectSummariesAsync(cancellationToken);
         if (!response.Success)
         {
             return Results.BadRequest(response);
@@ -30,9 +30,9 @@ public static class ProjectEndpoints
         return Results.Ok(response);
     }
 
-    private static async Task<IResult> GetProjectById(string id, IProjectService service)
+    private static async Task<IResult> GetProjectById(string id, IProjectService service, CancellationToken cancellationToken)
     {
-        var response = await service.GetProjectByIdAsync(id);
+        var response = await service.GetProjectByIdAsync(id, cancellationToken);
         if (!response.Success)
         {
             return Results.NotFound(response);

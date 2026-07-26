@@ -7,17 +7,17 @@ namespace Portfolio.Api.Project;
 
 public interface IProjectService
 {
-    Task<ResponseDto<List<ProjectSummaryDto>>> GetAllProjectSummariesAsync();
-    Task<ResponseDto<ProjectDto>> GetProjectByIdAsync(string id);
+    Task<ResponseDto<List<ProjectSummaryDto>>> GetAllProjectSummariesAsync(CancellationToken cancellationToken = default);
+    Task<ResponseDto<ProjectDto>> GetProjectByIdAsync(string id, CancellationToken cancellationToken = default);
 }
 
 public class ProjectService(IBaseDomainRepository<ProjectModel> projectRepository) : IProjectService
 {
     private readonly IBaseDomainRepository<ProjectModel> _projectRepository = projectRepository;
 
-    public async Task<ResponseDto<ProjectDto>> GetProjectByIdAsync(string id)
+    public async Task<ResponseDto<ProjectDto>> GetProjectByIdAsync(string id, CancellationToken cancellationToken = default)
     {
-        var project = await _projectRepository.GetByIdAsync(id);
+        var project = await _projectRepository.GetByIdAsync(id, cancellationToken);
         if (project is null)
         {
             return ResponseDto<ProjectDto>.FailureResult($"ProjectModel with ID '{id}' not found.")!;
@@ -26,9 +26,9 @@ public class ProjectService(IBaseDomainRepository<ProjectModel> projectRepositor
         return ResponseDto<ProjectDto>.SuccessResult(project.ToDto())!;
     }
 
-    public async Task<ResponseDto<List<ProjectSummaryDto>>> GetAllProjectSummariesAsync()
+    public async Task<ResponseDto<List<ProjectSummaryDto>>> GetAllProjectSummariesAsync(CancellationToken cancellationToken = default)
     {
-        var projects = await _projectRepository.GetAllPublishedAsync();
+        var projects = await _projectRepository.GetAllPublishedAsync(cancellationToken);
         var projectSummaryDtos = projects.Select(p => p.ToSummaryDto()).ToList();
         return ResponseDto<List<ProjectSummaryDto>>.SuccessResult(projectSummaryDtos)!;
     }
